@@ -1,6 +1,13 @@
-if exist wfm.exe del wfm.exe
-if exist debug.txt del debug.txt
-set PATH=C:\w64devkit\bin
+#!/bin/bash
+
+# Hapus binary lama
+[ -f wfm.exe ] && rm wfm.exe
+[ -f debug.txt ] && rm debug.txt
+
+# Compile
 make -j8
-start wfm.exe
-pause
+
+echo "Build finished. Output: wfm.exe"
+
+# Tidak perlu ./wfm.exe karena .exe tidak jalan di Linux
+# Copy file ke Windows untuk run
